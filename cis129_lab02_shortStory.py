@@ -2,6 +2,7 @@
 #Tells a story to user
 #lengthened the story
 print('The Kid on the Sidewalk')
+print('')
 print('Timmy was walking down the sidewalk.')
 print('Timmy saw a frog up ahead and went to grab it.')
 print('After he grabbed it someone approached Timmy.')
