@@ -6,10 +6,30 @@
 print('***********************************')
 print('Welcome to Coffee and More\n'
       'How many coffees would you like?')
-coffeeQuantity = int(input())
-
+while True:
+    try:
+        coffeeQuantity = int(input())
+    except:
+        print('Please put in a positive number')
+    else:
+        if coffeeQuantity >= 0:
+            break
+        else:
+            print('Please put in a positive number')
+                
+                
+              
 print('How many muffins would you like?')
-muffinQuantity = int(input())
+while True:
+    try:
+        muffinQuantity = int(input())
+    except:
+        print('Please put in a positive number')
+    else:
+        if muffinQuantity >= 0:
+            break
+        else:
+            print('Please put in a positive number')
 
 print('***********************************\n\n')
 print('***********************************')
