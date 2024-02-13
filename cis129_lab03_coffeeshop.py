@@ -1,7 +1,7 @@
 #Ian Bieg
 #Asks the user for a store order and displays the total price
 
-#Aquire user order MUST BE POSITIVE INTEGER
+#Aquire user order MUST BE POSITIVE 
 
 print('***********************************')
 print('Welcome to Coffee and More\n'
@@ -87,16 +87,16 @@ priceTotal = taxPrice + taxlessPrice
 #Display user total and prices per item back to them
 #as well as their total 
 print('Coffee and More reciept')
-print(coffeeQuantity,'coffee at $' + str(coffeePrice), 'each: '
+print(coffeeQuantity,'coffee at $' + str(format(coffeePrice, '.2f')), 'each: '
       '$' + str(format(coffeeTotal, '.2f')))
 
-print(muffinQuantity,'muffin at $' + str(muffinPrice), 'each: '
+print(muffinQuantity,'muffin at $' + str(format(muffinPrice, '.2f')), 'each: '
       '$' + str(format(muffinTotal, '.2f')))
 
-print(yetiQuantity, '55ft Yeti at $' + str(yetiPrice), 'each: '
+print(yetiQuantity, '55ft Yeti at $' + str(format(yetiPrice, '.2f')), 'each: '
       '$' + str(format(yetiTotal, '.2f')))
 
-print(shoeQuantity, 'horseshoes at $' + str(shoePrice), 'each: '
+print(shoeQuantity, 'horseshoes at $' + str(format(shoePrice, '.2f')), 'each: '
       '$' + str(format(shoeTotal, '.2f')))
 
 print(str(int((salesTax * 100))) + '% tax: $' + str(format(taxPrice, '.2f')))
