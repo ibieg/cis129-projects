@@ -105,7 +105,7 @@ print(yetiQuantity, '55ft Yeti at $' + str(format(yetiPrice, '.2f')), 'each: '
 print(shoeQuantity, 'horseshoes at $' + str(format(shoePrice, '.2f')), 'each: '
       '$' + str(format(shoeTotal, '.2f')))
 
-print(str(int((salesTax * PERCENT))) + '% tax: $' + str(format(taxPrice, '.2f')))
+print(str((salesTax * PERCENT)) + '% tax: $' + str(format(taxPrice, '.2f')))
 
 print('----------------------------')
 
