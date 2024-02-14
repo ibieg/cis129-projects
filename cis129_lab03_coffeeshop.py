@@ -72,18 +72,6 @@ while True:
 print('***********************************\n')
 print('***********************************')
 
-#Prices and Tax variables
-
-salesTax = float(.06)
-
-coffeePrice = float(5)
-
-muffinPrice = float(4)
-
-yetiPrice = float(5500)
-
-shoePrice = float(9.99)
-
 #Total price calculation
 
 coffeeTotal = coffeeQuantity * coffeePrice
