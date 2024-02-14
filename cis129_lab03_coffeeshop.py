@@ -2,6 +2,7 @@
 #Asks the user for a store order and displays the total price
 
 #Prices and Tax variables
+PERCENT = 100
 
 salesTax = float(.06)
 
@@ -104,7 +105,7 @@ print(yetiQuantity, '55ft Yeti at $' + str(format(yetiPrice, '.2f')), 'each: '
 print(shoeQuantity, 'horseshoes at $' + str(format(shoePrice, '.2f')), 'each: '
       '$' + str(format(shoeTotal, '.2f')))
 
-print(str(int((salesTax * 100))) + '% tax: $' + str(format(taxPrice, '.2f')))
+print(str(int((salesTax * PERCENT))) + '% tax: $' + str(format(taxPrice, '.2f')))
 
 print('----------------------------')
 
