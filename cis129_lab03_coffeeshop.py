@@ -1,11 +1,24 @@
 #Ian Bieg
 #Asks the user for a store order and displays the total price
 
+#Prices and Tax variables
+
+salesTax = float(.06)
+
+coffeePrice = float(5)
+
+muffinPrice = float(4)
+
+yetiPrice = float(5500)
+
+shoePrice = float(9.99)
+
 #Aquire user order MUST BE POSITIVE 
 
 print('***********************************')
 print('Welcome to Coffee and More\n'
-      'How many coffees would you like?')
+      'How many coffees would you like at $' +\
+      str(format(coffeePrice, '.2f')), 'a cup?')
 while True:
     try:
         coffeeQuantity = int(input())
@@ -17,7 +30,8 @@ while True:
         else:
             print('Please put in a positive number')
                 
-print('How many muffins would you like?')
+print('How many muffins would you like at $' +\
+      str(format(muffinPrice, '.2f')), 'a muffin?')
 while True:
     try:
         muffinQuantity = int(input())
@@ -29,7 +43,8 @@ while True:
         else:
             print('Please put in a positive number')
 
-print('How many 55ft Yeti would you like?')
+print('How many 55ft Yeti would you like at $' +\
+      str(format(yetiPrice, '.2f')), 'a Yeti?')
 while True:
     try:
         yetiQuantity = int(input())
@@ -41,7 +56,8 @@ while True:
         else:
             print('Please put in a positive number')
 
-print('How many horeshoes would you like?')
+print('How many horeshoes would you like at $' +\
+      str(format(shoePrice, '.2f')), 'a horseshoe?')
 while True:
     try:
         shoeQuantity = int(input())
@@ -53,7 +69,7 @@ while True:
         else:
             print('Please put in a positive number')
 
-print('***********************************\n\n')
+print('***********************************\n')
 print('***********************************')
 
 #Prices and Tax variables
@@ -85,7 +101,8 @@ taxPrice = taxlessPrice * salesTax
 priceTotal = taxPrice + taxlessPrice
 
 #Display user total and prices per item back to them
-#as well as their total 
+#as well as their total
+
 print('Coffee and More reciept')
 print(coffeeQuantity,'coffee at $' + str(format(coffeePrice, '.2f')), 'each: '
       '$' + str(format(coffeeTotal, '.2f')))
@@ -105,6 +122,7 @@ print('----------------------------')
 
 print('Total: $' + str(format(priceTotal, '.2f')))
 
+print('***********************************\n')
 print('***********************************')
 
-print('\nThank you for visiting Coffee and More')
+print('Thank you for visiting Coffee and More')
