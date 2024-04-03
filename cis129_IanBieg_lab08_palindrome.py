@@ -27,7 +27,6 @@ def isPalindrome(palindrome):
         if len(palindromeList) == 1:
              print('Can a singular letter or number be considered a palindrome?')
         #checks if the last letter of the word is the same as the first until the middle
-        print('made it here')
         for item in range(len(palindromeList)//2):
             if palindromeList.pop() == palindromeList[item]:
                  if item == len(palindromeList)//2:
@@ -36,7 +35,6 @@ def isPalindrome(palindrome):
             else:
                  print(f'{palindrome} is not a palindrome')
                  break
-        print('made it there')
 
 
 
