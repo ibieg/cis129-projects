@@ -21,22 +21,19 @@ def isPalindrome(palindrome):
         palindromeList += modPalindrome.lower()
         #triggers if user enters nothing
         if modPalindrome == '':
-             print('The nothingness awaits')
-             return
+            print('The nothingness awaits')
+            return
         #triggers if word or expression is a questionable palindrome
         if len(palindromeList) == 1:
-             print('Can a singular letter or number be considered a palindrome?')
+            print('Can a singular letter or number be considered a palindrome?')
         #checks if the last letter of the word is the same as the first until the middle
         for item in range(len(palindromeList)//2):
             if palindromeList.pop() == palindromeList[item]:
-                 if item == len(palindromeList)//2:
-                      print(f'{palindrome} is a palindrome')
-                 continue
+                continue
             else:
-                 print(f'{palindrome} is not a palindrome')
-                 break
-
-
+                print(f'{palindrome} is not a palindrome')
+                return
+        print(f'{palindrome} is a palindrome')
 
 
 main()
