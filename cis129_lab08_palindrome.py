@@ -2,38 +2,49 @@
 #determines if a word or expression can be considered a palindrome
 def main():
     SENTINEL = 'q'
-    palindrome = str()
+    palindrome = ''
     #loop question
     while palindrome != SENTINEL:
-        palindrome = input('Enter a possible palindrome ("q" to quit)\n')
+        userpalindrome = input('Enter a possible palindrome ("q" to quit)\n')
+        palindrome = createFilteredPalindrome(userpalindrome)
         if palindrome != SENTINEL:
-            isPalindrome(palindrome)
+            #check for palindrome
+            if isPalindrome(palindrome) == 'Invalid':
+                print(isPalindrome(palindrome))
+            elif isPalindrome(palindrome):
+                print(f'{palindrome} is a palindrome')
+            else:
+                print(f'{palindrome} is not palindrome')
+    #program end message
     print('Goodbye')
 
 #determine if a word or expression can be considered a palindrome
 def isPalindrome(palindrome):
-        palindromeList = []
-        #remove formatting characters for numbers
-        modPalindrome = palindrome.replace(' ','')
-        modPalindrome = modPalindrome.replace(',','')
-        modPalindrome = modPalindrome.replace('.','')
-        #create list of letters in palindrome(lowercase)
-        palindromeList += modPalindrome.lower()
-        #triggers if user enters nothing
-        if modPalindrome == '':
-            print('The nothingness awaits')
-            return
-        #triggers if word or expression is a questionable palindrome
-        if len(palindromeList) == 1:
-            print('Can a singular letter or number be considered a palindrome?')
-        #checks if the last letter of the word is the same as the first until the middle
-        for item in range(len(palindromeList)//2):
-            if palindromeList.pop() == palindromeList[item]:
-                continue
-            else:
-                print(f'{palindrome} is not a palindrome')
-                return
-        print(f'{palindrome} is a palindrome')
+    #create a list of the letters and numbers in palindrome
+    palindromeList = palindromeListFiltered(palindrome)
+    #checks for subjective invalid input
+    if palindrome.replace(' ','') == '' or palindrome == '' \
+        or palindrome.replace('\t','') == '':
+        return 'Invalid'
+    #check for word symmetry
+    for item in range(len(palindromeList)//2):
+        if palindromeList.pop() == palindromeList[item]:
+            continue
+        else:
+            return False
+    return True
 
+#creates a list of acceptable characters for a palindrome
+#lowercase alpha numeric characters
+def palindromeListFiltered(palindrome):
+    palindromeList = [letter for letter in (palindrome.lower()) if letter.isalnum()]
+    return palindromeList
+
+#creates a string of lowercase characters or numbers from a list
+def createFilteredPalindrome(userpalindrome):
+        palindrome = ''
+        for letter in palindromeListFiltered(userpalindrome):
+            palindrome += letter
+        return palindrome
 
 main()
