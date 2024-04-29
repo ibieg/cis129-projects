@@ -26,7 +26,8 @@ def moneyNumChecker(question):
             if userinput <= 0:
                 print('That is not a valid check amount')
                 continue
-            return str(f'{userinput:.2f}')
+            #money format the float
+            return str(f'{userinput:,.2f}')
         except ValueError:
             print('That is not a number')
         
@@ -34,18 +35,13 @@ def moneyNumChecker(question):
 def checkPrinter(userinput):
     #get length of number
     inputLength = len(userinput)
-    #filter checks that are too large
+    #filter checks that are too
     if inputLength > 10:
         print('We do not cash checks that large')
         return
     else:
-        #only 10 number slots avaliable subtract length from slots to get empties
-        whitespace = 10 - inputLength
-        #print a * for all empties
-        for amount in range(whitespace):
-            print('*', end='')
-        #show end result of check
-        print(f'{float(userinput):>.2f}')
-
+        #show end result of check in check protected format
+        userinput = f'{userinput:*>10}'
+        print(userinput)
 
 main()
