@@ -8,13 +8,13 @@ def main():
         while userinput != SENTINEL:
             userinput = getInteger('Enter a grade "q to quit"')
             if userinput != 'q':
-                gradeList.append(str(userinput))
+                gradeList.append(userinput)
             if userinput == 'q':
-                print(gradeList)
+                print(sum(gradeList)/len(gradeList))
                 for score in gradeList:
                     grades.write(score+'\n')
-        with open('grades.txt', mode='r') as grades:
-            print(grades.read())
+    with open('grades.txt', mode='r') as grades:
+        print(grades.readlines())
 
 def getInteger(message):
     while True:
