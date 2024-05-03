@@ -13,7 +13,9 @@ def main():
                 print(gradeList)
                 for score in gradeList:
                     grades.write(score+'\n')
-        
+        with open('grades.txt', mode='r') as grades:
+            print(grades.read())
+
 def getInteger(message):
     while True:
         print(message)
