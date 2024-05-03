@@ -1,4 +1,4 @@
-
+#ian bieg
 
 def main():
     SENTINEL = 'q'
@@ -12,18 +12,19 @@ def main():
             if userinput == 'q':
                 print(sum(gradeList)/len(gradeList))
                 for score in gradeList:
-                    grades.write(score+'\n')
-    with open('grades.txt', mode='r') as grades:
-        print(grades.readlines())
+                    grades.write(str(score)+'\n')
 
 def getInteger(message):
     while True:
         print(message)
         try:
-            userInput = int(input())
+            userInput = input()
+            userInput = int(userInput)
             return userInput
         except ValueError:
-            if userInput.lower() == 'q':
+            if userInput == 'q':
                 return 'q'
             else:
                 print('That is not a number, try again.')
+
+main()
