@@ -4,22 +4,23 @@ import csv
 
 def main():
     SENTINEL = 'q'
-    fileHeader = ['firstname','lastname','scores']
+    fileHeader = ['firstname','lastname','scores','score average']
     studentList = []
     userinput = ''
 
-    #with open('grades.csv', mode='w', newline = '') as grades:
-        #while userinput != SENTINEL:
-            #userinput = getStudentInfo()
-            #if userinput != 'q':
-                #studentList.append(userinput)
-        #csv.writer(grades).writerow(fileHeader)
-        #for item in studentList:
-                #csv.writer(grades).writerow(item.values())
+    with open('grades.csv', mode='w', newline = '') as grades:
+        while userinput != SENTINEL:
+            userinput = getStudentInfo()
+            if userinput != 'q':
+                studentList.append(userinput)
+        csv.writer(grades).writerow(fileHeader)
+        for item in studentList:
+                csv.writer(grades).writerow(item.values())
 
     with open('grades.csv', mode='r', newline ='') as grades:
         t = '\t'
-        print(f'{"firstname":>15}{t}{"lastname":>15}{t}{"scores":>15}')
+        print(f'{"firstname":>15}{t}{"lastname":>15}{t}'\
+              f'{"scores":>15}{t}{"score average"}')
         next(grades)
         for grade in csv.reader(grades):
             for item in grade:
@@ -39,18 +40,24 @@ def getStudentInfo():
         userinput = input()
         if userinput == SENTINEL:
             return SENTINEL
-        student = {'firstname':'','lastname':'','scores':[]}
+        student = {'firstname':'','lastname':'','scores':[],\
+                   'score average':''}
         student['firstname'] = input('Enter the students first name ')
         student['lastname'] = input('Enter the students last name ')
         for x in range(3):
-            userinput = getInteger('Enter a test score up to 3 attempts "q" to quit')
+            userinput = getInteger('Enter a test score '\
+                                   'up to 3 attempts "q" to quit')
             if userinput == SENTINEL and x > 0:
                 break
             elif userinput == SENTINEL:
                 print('You must enter one score')
             else:
                 student['scores'] += [userinput]
+            student['score average'] = sum(student['scores'])\
+                                        /len(student['scores'])
+        print(student)
         return student
+
 
 
 #def checkname
