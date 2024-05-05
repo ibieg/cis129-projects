@@ -1,13 +1,15 @@
 #ian bieg
-
+#creates a csv file of students and their scores for 3 attempts at a test
+#and calculates the average of the 3 scores or less
 import csv
 
 def main():
     SENTINEL = 'q'
-    fileHeader = ['firstname','lastname','scores','score average']
+    fileHeader = ['firstname','lastname','scores','average']
     studentList = []
     userinput = ''
 
+    #writes the csv file of student information
     with open('grades.csv', mode='w', newline = '') as grades:
         while userinput != SENTINEL:
             userinput = getStudentInfo()
@@ -17,10 +19,11 @@ def main():
         for item in studentList:
                 csv.writer(grades).writerow(item.values())
 
+    #reads the csv file that we created in a readable format
     with open('grades.csv', mode='r', newline ='') as grades:
         t = '\t'
         print(f'{"firstname":>15}{t}{"lastname":>15}{t}'\
-              f'{"scores":>15}{t}{"score average"}')
+              f'{"scores":>15}{t}{"average":>15}')
         next(grades)
         for grade in csv.reader(grades):
             for item in grade:
@@ -30,7 +33,8 @@ def main():
             print('')
 
             
-
+#obtains first and last name of student as well as their test scores
+#then calculates the average
 def getStudentInfo():
     SENTINEL = 'q'
     userinput = ''
@@ -41,7 +45,7 @@ def getStudentInfo():
         if userinput == SENTINEL:
             return SENTINEL
         student = {'firstname':'','lastname':'','scores':[],\
-                   'score average':''}
+                   'average':''}
         student['firstname'] = input('Enter the students first name ')
         student['lastname'] = input('Enter the students last name ')
         for x in range(3):
@@ -53,15 +57,14 @@ def getStudentInfo():
                 print('You must enter one score')
             else:
                 student['scores'] += [userinput]
-            student['score average'] = sum(student['scores'])\
-                                        /len(student['scores'])
-        print(student)
+        newScore = 0
+        for score in student['scores']:
+            newScore += score
+        student['average'] = \
+            f'{newScore / len(student["scores"]):.1f}%'
         return student
 
-
-
-#def checkname
-
+#get integer value only
 def getInteger(message):
     while True:
         print(message)
