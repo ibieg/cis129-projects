@@ -12,14 +12,14 @@ def main():
     #writes the csv file of student information
     with open('grades.csv', mode='w', newline = '') as grades:
         while userinput != SENTINEL:
-            userinput = getStudentInfo()
+            userinput = getStudentInfo() #get name and scores
             if userinput != 'q':
                 studentList.append(userinput)
         csv.writer(grades).writerow(fileHeader)
         for item in studentList:
                 csv.writer(grades).writerow(item.values())
 
-    #reads the csv file that we created in a readable format
+    #reads the csv file that we created and prints in a readable format
     with open('grades.csv', mode='r', newline ='') as grades:
         t = '\t'
         print(f'{"firstname":>15}{t}{"lastname":>15}{t}'\
@@ -34,7 +34,7 @@ def main():
 
             
 #obtains first and last name of student as well as their test scores
-#then calculates the average
+#then calculates the average returns dictionary of student
 def getStudentInfo():
     SENTINEL = 'q'
     userinput = ''
@@ -44,10 +44,12 @@ def getStudentInfo():
         userinput = input()
         if userinput == SENTINEL:
             return SENTINEL
+        #aquire student identifiers
         student = {'firstname':'','lastname':'','scores':[],\
                    'average':''}
         student['firstname'] = input('Enter the students first name ')
         student['lastname'] = input('Enter the students last name ')
+        #aquire student grades
         for x in range(3):
             userinput = getInteger('Enter a test score '\
                                    'up to 3 attempts "q" to quit')
@@ -57,6 +59,7 @@ def getStudentInfo():
                 print('You must enter one score')
             else:
                 student['scores'] += [userinput]
+        #calculates average score
         newScore = 0
         for score in student['scores']:
             newScore += score
