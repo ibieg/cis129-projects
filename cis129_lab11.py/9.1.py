@@ -1,16 +1,20 @@
-#ian bieg
-
+#ian bieg   
+#creates a file grades.txt that stores student grades
+#and shows the average of the class
 def main():
     SENTINEL = 'q'
     gradeList = []
     userinput = ''
     with open('grades.txt', mode='w') as grades:
+        #collect grades
         while userinput != SENTINEL:
             userinput = getInteger('Enter a grade "q to quit"')
             if userinput != 'q':
                 gradeList.append(userinput)
             if userinput == 'q':
-                print(sum(gradeList)/len(gradeList))
+                print('The class average is',
+                      f'{sum(gradeList)/len(gradeList):.1f}%')
+                #write each grade to file
                 for score in gradeList:
                     grades.write(str(score)+'\n')
 
